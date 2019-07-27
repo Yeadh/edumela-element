@@ -46,18 +46,6 @@ class edumela_Widget_Banner extends Widget_Base {
          ]
       );
 
-
-      $this->add_control(
-      'banner_image',
-        [
-          'label' => __( 'Banner image', 'edumela' ),
-          'type' => \Elementor\Controls_Manager::MEDIA,
-          'default' => [
-            'url' => \Elementor\Utils::get_placeholder_image_src(),
-          ],
-        ]
-      );
-
       $this->add_control(
          'title',
          [
@@ -104,7 +92,7 @@ class edumela_Widget_Banner extends Widget_Base {
 
       <?php if ( $settings['style'] == 'style1' ){ ?>
         <!-- banner-area -->
-        <section class="slider-area slider-bg" data-background="<?php echo $settings['banner_image']['url'] ?>">
+        <section class="slider-area slider-bg">
           <div class="container">
               <div class="row justify-content-center">
                   <div class="col-lg-10">
