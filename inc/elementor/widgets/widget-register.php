@@ -30,65 +30,31 @@ class edumela_Widget_register extends Widget_Base {
       );
 
       $this->add_control(
-         'register_icon', [
-            'label' => __( 'register Icon', 'edumela' ),
-            'type' => \Elementor\Controls_Manager::MEDIA,
-            'default' => [
-              'url' => \Elementor\Utils::get_placeholder_image_src(),
-            ],
-         ]
-      );
-
-      $this->add_control(
-         'title',
+         'year',
          [
-            'label' => __( 'Title', 'edumela' ),
+            'label' => __( 'Year', 'edumela' ),
             'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => __('Experienced lecturers','edumela'),
+            'default' => 2019,
          ]
       );
 
       $this->add_control(
-         'text',
+         'month',
          [
-            'label' => __( 'Text', 'edumela' ),
+            'label' => __( 'Month', 'edumela' ),
             'type' => \Elementor\Controls_Manager::TEXTAREA,
-            'default' => __('Lorem ipsum dummy text in site dummy content and data. Replace orginal text here.','edumela'),
+            'default' => 9,
          ]
       );
 
       $this->add_control(
-         'btn_text',
-         [
-            'label' => __( 'Text', 'edumela' ),
-            'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => __('Download','edumela'),
-         ]
-      );
-
-      $this->add_control(
-         'btn_url',
-         [
-            'label' => __( 'Text', 'edumela' ),
-            'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => '#',
-         ]
-      );
-
-      $this->add_control(
-        'colors',
+        'day',
         [
-          'label' => __( 'Colors', 'plugin-domain' ),
-          'type' => \Elementor\Controls_Manager::SELECT,
-          'default' => 'solid',
-          'options' => [
-            'default'  => __('Blue' , 'edumela' ),
-            'red'      => __('Red' , 'edumela' ),
-            'green'    => __('Green' , 'edumela' ),
-          ],
+          'label' => __( 'Day', 'edumela' ),
+          'type' => \Elementor\Controls_Manager::DATE_TIME,
+          'default' => 30,
         ]
       );
-
       
       $this->end_controls_section();
    }
@@ -101,16 +67,18 @@ class edumela_Widget_register extends Widget_Base {
       //Inline Editing
       $this->add_inline_editing_attributes( 'text', 'basic' );
       ?>
-
-      <div class="single-registers <?php echo $settings['colors'] ?>">
-          <div class="registers-icon mb-25">
-              <img src="<?php echo $settings['register_icon']['url'] ?>" alt="<?php echo $settings['title']; ?>">
-          </div>
-          <div class="registers-content">
-              <h4><?php echo $settings['title']; ?></h4>
-              <p><?php echo esc_html($settings['text']); ?></p>
-              <div class="registers-more">
-                  <a href="<?php echo esc_url($settings['btn_url']); ?>"><?php echo esc_html($settings['btn_text']); ?> <i class="arrow_right"></i></a>
+      <div class="row justify-content-center">
+          <div class="col-xl-10">
+            
+              <div class="reg-form mb-70 text-center">
+                  <form action="#">
+                      <input type="text" placeholder="Name">
+                      <input type="email" placeholder="Email">
+                      <button class="btn">Registration now</button>
+                  </form>
+              </div>
+              <div class="coming-time-wrap text-center">
+                  <div class="coming-time" data-countdown="<?php echo $settings['year'] ?>/<?php echo $settings['month'] ?>/<?php echo $settings['day'] ?>"></div>
               </div>
           </div>
       </div>
