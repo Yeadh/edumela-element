@@ -14,7 +14,7 @@ class edumela_Widget_Feature extends Widget_Base {
    }
  
    public function get_icon() { 
-        return 'eicon-bullet-list';
+        return 'eicon-featured-image';
    }
  
    public function get_categories() {
@@ -22,7 +22,7 @@ class edumela_Widget_Feature extends Widget_Base {
    }
    protected function _register_controls() {
       $this->start_controls_section(
-         'service_section',
+         'feature_section',
          [
             'label' => esc_html__( 'Feature', 'edumela' ),
             'type' => Controls_Manager::SECTION,
@@ -44,7 +44,7 @@ class edumela_Widget_Feature extends Widget_Base {
          [
             'label' => __( 'Title', 'edumela' ),
             'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => __('All kind of Business tools integretion','edumela'),
+            'default' => __('Experienced lecturers','edumela'),
          ]
       );
 
@@ -53,7 +53,7 @@ class edumela_Widget_Feature extends Widget_Base {
          [
             'label' => __( 'Text', 'edumela' ),
             'type' => \Elementor\Controls_Manager::TEXTAREA,
-            'default' => __('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt','edumela'),
+            'default' => __('Lorem ipsum dummy text in site dummy content and data. Replace orginal text here.','edumela'),
          ]
       );
 
@@ -74,6 +74,21 @@ class edumela_Widget_Feature extends Widget_Base {
             'default' => '#',
          ]
       );
+
+      $this->add_control(
+        'colors',
+        [
+          'label' => __( 'Colors', 'plugin-domain' ),
+          'type' => \Elementor\Controls_Manager::SELECT,
+          'default' => 'solid',
+          'options' => [
+            'default'  => __('Blue' , 'edumela' ),
+            'red'      => __('Red' , 'edumela' ),
+            'green'    => __('Green' , 'edumela' ),
+          ],
+        ]
+      );
+
       
       $this->end_controls_section();
    }
@@ -87,16 +102,18 @@ class edumela_Widget_Feature extends Widget_Base {
       $this->add_inline_editing_attributes( 'text', 'basic' );
       ?>
 
-      <div class="single-business-process">
-          <div class="bp-icon mb-70">
-              <img src="<?php echo esc_url($settings['feature_icon']['url']); ?>" alt="icon">
+      <div class="single-features <?php echo $settings['colors'] ?>">
+          <div class="features-icon mb-25">
+              <img src="<?php echo $settings['feature_icon']['url'] ?>" alt="<?php echo $settings['title']; ?>">
           </div>
-          <div class="bp-content">
-              <h2><?php echo $settings['title']; ?></h2>
+          <div class="features-content">
+              <h4><?php echo $settings['title']; ?></h4>
               <p><?php echo esc_html($settings['text']); ?></p>
-              <a href="<?php echo esc_url($settings['btn_url']); ?>" class="btn"><?php echo esc_html($settings['btn_text']); ?></a>
+              <div class="features-more">
+                  <a href="<?php echo esc_url($settings['btn_url']); ?>"><?php echo esc_html($settings['btn_text']); ?> <i class="arrow_right"></i></a>
+              </div>
           </div>
-        </div>
+      </div>
       <?php
    }
  

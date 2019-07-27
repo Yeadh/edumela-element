@@ -37,7 +37,7 @@ class edumela_Widget_Title extends Widget_Base {
          [
             'label' => __( 'Title', 'edumela' ),
             'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => __('We offer All kind service features','edumela')
+            'default' => __('Blog and events','edumela')
          ]
       );
 
@@ -46,14 +46,14 @@ class edumela_Widget_Title extends Widget_Base {
          [
             'label' => __( 'Sub Title', 'edumela' ),
             'type' => \Elementor\Controls_Manager::TEXTAREA,
-            'default' => __('Lorem ipsum dummy text are used here so replace your app data, Lorem ipsum dummy text are used here so replace your app data dummy text are','edumela')
+            'default' => __('Read what our clients say about us read what our clients say about us','edumela')
          ]
       );
 
       $this->add_control(
-         'border',
+         'd_bg',
          [
-            'label' => __( 'Border Bottom', 'edumela' ),
+            'label' => __( 'Dark Background', 'edumela' ),
             'type' => \Elementor\Controls_Manager::SWITCHER,
             'label_on' => __( 'On', 'edumela' ),
             'label_off' => __( 'Off', 'edumela' ),
@@ -70,18 +70,18 @@ class edumela_Widget_Title extends Widget_Base {
  
       // get our input from the widget settings.
        
-      $settings = $this->get_settings_for_display();
-      
-      //Inline Editing
-      $this->add_inline_editing_attributes( 'title', 'basic' );
-      $this->add_inline_editing_attributes( 'sub-title', 'basic' );
-      $this->add_inline_editing_attributes( 'border', 'basic' );
-      
-      ?>
-      <div class="section-title text-center border-none mb-75">
-        <h2 <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo esc_html($settings['title']); ?></h2>
-        <p <?php echo $this->get_render_attribute_string( 'sub-title' ); ?>><?php echo esc_html($settings['sub-title']); ?></p>
-      </div>
+      $settings = $this->get_settings_for_display(); ?>
+
+      <div class="row justify-content-center">
+            <div class="col-xl-6 col-lg-7 col-md-10">
+                <div class="section-title <?php if( 'yes' == $settings['d_bg'] ){ echo'white-title'; } ?> mb-45 text-center">
+                  <h2><?php echo esc_html($settings['title']); ?></h2>
+                  <?php if ($settings['sub-title']): ?>
+                     <p><?php echo esc_html($settings['sub-title']); ?></p>
+                  <?php endif ?>                  
+                </div>
+            </div>
+        </div>
       <?php
    }
  
