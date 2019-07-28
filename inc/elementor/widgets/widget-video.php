@@ -60,19 +60,11 @@ class edumela_Widget_video extends Widget_Base {
       // get our input from the widget settings.
        
       $settings = $this->get_settings_for_display(); ?>
-
-      <section class="video-area">
-          <div class="container">
-              <div class="row justify-content-center">
-                  <div class="col-lg-10">
-                      <div class="video-wrap p-relative">
-                          <img src="<?php echo esc_url($settings['background']['url']); ?>" alt="img">
-                          <a href="<?php echo esc_url($settings['url']); ?>" class="popup-video"><i class="fas fa-play"></i></a>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </section>
+      
+      <div class="teach-video">
+          <img src="<?php echo esc_url($settings['background']['url']); ?>" alt="img">
+          <a href="<?php echo esc_url($settings['url']); ?>" class="popup-video"><i class="fas fa-play"></i></a>
+      </div>
    
       <?php }
  

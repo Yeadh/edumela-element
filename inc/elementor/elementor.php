@@ -54,6 +54,7 @@ class edumela_ElementorCustomElement {
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-partner.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-service.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-feature.php');
+         include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-featurelist.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-courses.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-exclusivefeatures.php');
          include_once(plugin_dir_path( __FILE__ ).'/widgets/widget-newsletter.php');
