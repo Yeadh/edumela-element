@@ -14,7 +14,7 @@ class edumela_Widget_register extends Widget_Base {
    }
  
    public function get_icon() { 
-        return 'eicon-registerd-image';
+        return 'eicon-form-horizontal';
    }
  
    public function get_categories() {
@@ -42,7 +42,7 @@ class edumela_Widget_register extends Widget_Base {
          'month',
          [
             'label' => __( 'Month', 'edumela' ),
-            'type' => \Elementor\Controls_Manager::TEXTAREA,
+            'type' => \Elementor\Controls_Manager::TEXT,
             'default' => 9,
          ]
       );

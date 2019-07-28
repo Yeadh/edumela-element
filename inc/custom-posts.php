@@ -9,24 +9,24 @@ if ( ! function_exists('edumela_custom_post_type') ) {
      */
     function edumela_custom_post_type() {
 
-        //portfolio
+        //event
         register_post_type(
-            'portfolio', array(
+            'event', array(
             'labels'                 => array(
-                'name'               => _x( 'Portfolio', 'post type general name', 'edumela' ),
-                'singular_name'      => _x( 'Portfolio', 'post type singular name', 'edumela' ),
-                'menu_name'          => _x( 'Portfolio', 'admin menu', 'edumela' ),
-                'name_admin_bar'     => _x( 'Portfolio', 'add new on admin bar', 'edumela' ),
-                'add_new'            => _x( 'Add New', 'Portfolio', 'edumela' ),
-                'add_new_item'       => __( 'Add New Portfolio', 'edumela' ),
-                'new_item'           => __( 'New Portfolio', 'edumela' ),
-                'edit_item'          => __( 'Edit Portfolio', 'edumela' ),
-                'view_item'          => __( 'View Portfolio', 'edumela' ),
-                'all_items'          => __( 'All Portfolio', 'edumela' ),
-                'search_items'       => __( 'Search Portfolio', 'edumela' ),
-                'parent_item_colon'  => __( 'Parent Portfolio:', 'edumela' ),
-                'not_found'          => __( 'No Portfolio found.', 'edumela' ),
-                'not_found_in_trash' => __( 'No Portfolio found in Trash.', 'edumela' )
+                'name'               => _x( 'event', 'post type general name', 'edumela' ),
+                'singular_name'      => _x( 'event', 'post type singular name', 'edumela' ),
+                'menu_name'          => _x( 'event', 'admin menu', 'edumela' ),
+                'name_admin_bar'     => _x( 'event', 'add new on admin bar', 'edumela' ),
+                'add_new'            => _x( 'Add New', 'event', 'edumela' ),
+                'add_new_item'       => __( 'Add New event', 'edumela' ),
+                'new_item'           => __( 'New event', 'edumela' ),
+                'edit_item'          => __( 'Edit event', 'edumela' ),
+                'view_item'          => __( 'View event', 'edumela' ),
+                'all_items'          => __( 'All event', 'edumela' ),
+                'search_items'       => __( 'Search event', 'edumela' ),
+                'parent_item_colon'  => __( 'Parent event:', 'edumela' ),
+                'not_found'          => __( 'No event found.', 'edumela' ),
+                'not_found_in_trash' => __( 'No event found in Trash.', 'edumela' )
             ),
 
             'description'        => __( 'Description.', 'edumela' ),
@@ -35,21 +35,8 @@ if ( ! function_exists('edumela_custom_post_type') ) {
             'show_in_menu'       => true,
             'has_archive'        => false,
             'hierarchical'       => true,
-            'rewrite'            => array( 'slug' => 'portfolio' ),
+            'rewrite'            => array( 'slug' => 'event' ),
             'supports'           => array( 'title', 'editor', 'thumbnail' )
-        ));
-
-        // portfolio taxonomy
-        register_taxonomy(
-            'portfolio_category',
-            'portfolio',
-            array(
-                'labels' => array(
-                    'name' => __( 'Portfolio Category', 'edumela' ),
-                    'add_new_item'      => __( 'Add New Category', 'edumela' ),
-                ),
-                'hierarchical' => true,
-                'show_admin_column'     => true
         ));
     }
 
