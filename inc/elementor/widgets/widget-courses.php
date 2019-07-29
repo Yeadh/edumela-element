@@ -45,6 +45,25 @@ class edumela_Widget_courses extends Widget_Base {
          ]
       );
 
+      $this->add_control(
+         'numberofpost',
+         [
+            'label' => __( 'Number of post', 'edumela' ),
+            'type' => Controls_Manager::SLIDER,
+            'size_units' => [ 'px', '%' ],
+            'range' => [
+               '%' => [
+                  'min' => 3,
+                  'max' => 100,
+               ],
+            ],
+            'default' => [
+               'unit' => '%',
+               'size' => 6,
+            ],
+         ]
+      );
+
       
       $this->end_controls_section();
 
@@ -80,7 +99,7 @@ class edumela_Widget_courses extends Widget_Base {
 
                $course = new \WP_Query( array( 
                   'post_type' => 'lp_course',
-                  'posts_per_page' => $settings['ppp']['size'],
+                  'posts_per_page' => $settings['numberofpost']['size'],
                   'order' => $settings['order'],
                ));
 
@@ -98,12 +117,8 @@ class edumela_Widget_courses extends Widget_Base {
                      <div class="course-content">
                          <div class="course-fee">Free</div>
                          <div class="c-review mb-20">
-                             <i class="icon_star"></i>
-                             <i class="icon_star"></i>
-                             <i class="icon_star"></i>
-                             <i class="icon_star"></i>
-                             <i class="icon_star-half_alt"></i>
-                             <span>(222 Reviews)</span>
+                             <div class="star-rating" data-rating="<?php echo learn_press_get_course_rate( get_the_ID(), false )['rated']; ?>"></div>
+                             <span>(<?php echo learn_press_get_course_rate( get_the_ID(), false )['total']; ?>  Reviews)</span>
                          </div>
                          <h3><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h3>
                          <div class="course-meta">
