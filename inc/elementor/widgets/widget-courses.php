@@ -33,80 +33,17 @@ class edumela_Widget_courses extends Widget_Base {
       );
 
       $this->add_control(
-      'mockup_image',
-        [
-          'label' => __( 'Mockup image', 'edumela' ),
-          'type' => \Elementor\Controls_Manager::MEDIA,
-          'default' => [
-            'url' => \Elementor\Utils::get_placeholder_image_src(),
-          ],
-        ]
-      );
-
-
-      $this->add_control(
-         'title',
+         'order',
          [
-            'label' => __( 'Title', 'edumela' ),
-            'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => __('We offer All kind service courses','edumela')
-         ]
-      );
-
-      $feature = new \Elementor\Repeater();
-
-      $feature->add_control(
-         'feature_icon', [
-            'label' => __( 'Feature Icon', 'edumela' ),
-            'type' => \Elementor\Controls_Manager::MEDIA,
-            'default' => [
-              'url' => \Elementor\Utils::get_placeholder_image_src(),
+            'label' => __( 'Order', 'edumela' ),
+            'type' => \Elementor\Controls_Manager::SELECT,
+            'default' => 'ASC',
+            'options' => [
+               'ASC'  => __( 'Ascending', 'edumela' ),
+               'DESC' => __( 'Descending', 'edumela' )
             ],
          ]
       );
-      
-      $feature->add_control(
-         'feature_title', [
-            'label' => __( 'Feature Title', 'edumela' ),
-            'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => 'Easily customizable',
-         ]
-      );
-
-      $feature->add_control(
-         'feature_text', [
-            'label' => __( 'Feature Text', 'edumela' ),
-            'type' => \Elementor\Controls_Manager::TEXTAREA,
-            'default' => 'Lorem ipsum dummy text are use in this section. so you should replace orginal content.lLorem dummy',
-         ]
-      );
-
-      $this->add_control(
-         'feature',
-         [
-            'label' => __( 'courses', 'edumela' ),
-            'type' => \Elementor\Controls_Manager::REPEATER,
-            'fields' => $feature->get_controls(),
-            'title_field' => '{{{ feature_title }}}',
-         ]
-      );
-
-      $this->add_control(
-         'button_text', [
-            'label' => __( 'Button Text', 'edumela' ),
-            'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => __('View all courses','edumela')
-         ]
-      );
-
-      $this->add_control(
-         'button_url', [
-            'label' => __( 'Button URL', 'edumela' ),
-            'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => '#'
-         ]
-      );
-      
 
       
       $this->end_controls_section();
@@ -119,711 +56,77 @@ class edumela_Widget_courses extends Widget_Base {
        
       $settings = $this->get_settings_for_display(); ?>
 
-      <!-- courses-area -->
-      <section class="courses-area pb-150">
-        <div class="row">
-                  <div class="col-12">
-                      <div class="tab course-tab">
-                          <ul class="tabs text-center">
-                              <li class="current"><a href="#">Design</a></li>
-                              <li><a href="#">Science</a></li>
-                              <li><a href="#">English</a></li>
-                              <li><a href="#">Business</a></li>
-                              <li><a href="#">Design</a></li>
-                          </ul>
-                          <div class="tab_content">
-                              <div class="tabs_item">
-                                  <div class="projects-carousel owl-carousel">
-                                      <div class="single-course mb-30">
-                                          <div class="course-thumb">
-                                              <img src="img/images/course_img01.jpg" alt="img">
-                                          </div>
-                                          <div class="course-content">
-                                              <div class="course-fee">Free</div>
-                                              <div class="c-review mb-20">
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star-half_alt"></i>
-                                                  <span>(222 Reviews)</span>
-                                              </div>
-                                              <h3><a href="#">UI UX design basic to dvance design course</a></h3>
-                                              <div class="course-meta">
-                                                  <div class="c-author">
-                                                      <p>By <a href="#">Ibraim emran</a></p>
-                                                  </div>
-                                                  <ul>
-                                                      <li><i class="icon_heart"></i>288</li>
-                                                      <li><i class=" icon_profile"></i> 158</li>
-                                                  </ul>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <div class="single-course mb-30">
-                                          <div class="course-thumb">
-                                              <img src="img/images/course_img01.jpg" alt="img">
-                                          </div>
-                                          <div class="course-content">
-                                              <div class="course-fee">Free</div>
-                                              <div class="c-review mb-20">
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star-half_alt"></i>
-                                                  <span>(222 Reviews)</span>
-                                              </div>
-                                              <h3><a href="#">Mastering Illustrator: 10 Tips &
-                                              tricks to speed your workflow</a></h3>
-                                              <div class="course-meta">
-                                                  <div class="c-author">
-                                                      <p>By <a href="#">Ibraim emran</a></p>
-                                                  </div>
-                                                  <ul>
-                                                      <li><i class="icon_heart"></i>288</li>
-                                                      <li><i class=" icon_profile"></i> 158</li>
-                                                  </ul>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <div class="single-course mb-30">
-                                          <div class="course-thumb">
-                                              <img src="img/images/course_img01.jpg" alt="img">
-                                          </div>
-                                          <div class="course-content">
-                                              <div class="course-fee">Free</div>
-                                              <div class="c-review mb-20">
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star-half_alt"></i>
-                                                  <span>(222 Reviews)</span>
-                                              </div>
-                                              <h3><a href="#">Creative Writing: Crafting
-                                              personal essays with impact</a></h3>
-                                              <div class="course-meta">
-                                                  <div class="c-author">
-                                                      <p>By <a href="#">Ibraim emran</a></p>
-                                                  </div>
-                                                  <ul>
-                                                      <li><i class="icon_heart"></i>288</li>
-                                                      <li><i class=" icon_profile"></i> 158</li>
-                                                  </ul>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <div class="single-course mb-30">
-                                          <div class="course-thumb">
-                                              <img src="img/images/course_img01.jpg" alt="img">
-                                          </div>
-                                          <div class="course-content">
-                                              <div class="course-fee">Free</div>
-                                              <div class="c-review mb-20">
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star-half_alt"></i>
-                                                  <span>(222 Reviews)</span>
-                                              </div>
-                                              <h3><a href="#">UI UX design basic to dvance design course</a></h3>
-                                              <div class="course-meta">
-                                                  <div class="c-author">
-                                                      <p>By <a href="#">Ibraim emran</a></p>
-                                                  </div>
-                                                  <ul>
-                                                      <li><i class="icon_heart"></i>288</li>
-                                                      <li><i class=" icon_profile"></i> 158</li>
-                                                  </ul>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <div class="single-course mb-30">
-                                          <div class="course-thumb">
-                                              <img src="img/images/course_img01.jpg" alt="img">
-                                          </div>
-                                          <div class="course-content">
-                                              <div class="course-fee">Free</div>
-                                              <div class="c-review mb-20">
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star-half_alt"></i>
-                                                  <span>(222 Reviews)</span>
-                                              </div>
-                                              <h3><a href="#">UI UX design basic to dvance design course</a></h3>
-                                              <div class="course-meta">
-                                                  <div class="c-author">
-                                                      <p>By <a href="#">Ibraim emran</a></p>
-                                                  </div>
-                                                  <ul>
-                                                      <li><i class="icon_heart"></i>288</li>
-                                                      <li><i class=" icon_profile"></i> 158</li>
-                                                  </ul>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="tabs_item">
-                                  <div class="projects-carousel owl-carousel">
-                                      <div class="single-course mb-30">
-                                          <div class="course-thumb">
-                                              <img src="img/images/course_img01.jpg" alt="img">
-                                          </div>
-                                          <div class="course-content">
-                                              <div class="course-fee">Free</div>
-                                              <div class="c-review mb-20">
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star-half_alt"></i>
-                                                  <span>(222 Reviews)</span>
-                                              </div>
-                                              <h3><a href="#">UI UX design basic to dvance design course</a></h3>
-                                              <div class="course-meta">
-                                                  <div class="c-author">
-                                                      <p>By <a href="#">Ibraim emran</a></p>
-                                                  </div>
-                                                  <ul>
-                                                      <li><i class="icon_heart"></i>288</li>
-                                                      <li><i class=" icon_profile"></i> 158</li>
-                                                  </ul>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <div class="single-course mb-30">
-                                          <div class="course-thumb">
-                                              <img src="img/images/course_img01.jpg" alt="img">
-                                          </div>
-                                          <div class="course-content">
-                                              <div class="course-fee">Free</div>
-                                              <div class="c-review mb-20">
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star-half_alt"></i>
-                                                  <span>(222 Reviews)</span>
-                                              </div>
-                                              <h3><a href="#">Mastering Illustrator: 10 Tips &
-                                              tricks to speed your workflow</a></h3>
-                                              <div class="course-meta">
-                                                  <div class="c-author">
-                                                      <p>By <a href="#">Ibraim emran</a></p>
-                                                  </div>
-                                                  <ul>
-                                                      <li><i class="icon_heart"></i>288</li>
-                                                      <li><i class=" icon_profile"></i> 158</li>
-                                                  </ul>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <div class="single-course mb-30">
-                                          <div class="course-thumb">
-                                              <img src="img/images/course_img01.jpg" alt="img">
-                                          </div>
-                                          <div class="course-content">
-                                              <div class="course-fee">Free</div>
-                                              <div class="c-review mb-20">
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star-half_alt"></i>
-                                                  <span>(222 Reviews)</span>
-                                              </div>
-                                              <h3><a href="#">Creative Writing: Crafting
-                                              personal essays with impact</a></h3>
-                                              <div class="course-meta">
-                                                  <div class="c-author">
-                                                      <p>By <a href="#">Ibraim emran</a></p>
-                                                  </div>
-                                                  <ul>
-                                                      <li><i class="icon_heart"></i>288</li>
-                                                      <li><i class=" icon_profile"></i> 158</li>
-                                                  </ul>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <div class="single-course mb-30">
-                                          <div class="course-thumb">
-                                              <img src="img/images/course_img01.jpg" alt="img">
-                                          </div>
-                                          <div class="course-content">
-                                              <div class="course-fee">Free</div>
-                                              <div class="c-review mb-20">
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star-half_alt"></i>
-                                                  <span>(222 Reviews)</span>
-                                              </div>
-                                              <h3><a href="#">UI UX design basic to dvance design course</a></h3>
-                                              <div class="course-meta">
-                                                  <div class="c-author">
-                                                      <p>By <a href="#">Ibraim emran</a></p>
-                                                  </div>
-                                                  <ul>
-                                                      <li><i class="icon_heart"></i>288</li>
-                                                      <li><i class=" icon_profile"></i> 158</li>
-                                                  </ul>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <div class="single-course mb-30">
-                                          <div class="course-thumb">
-                                              <img src="img/images/course_img01.jpg" alt="img">
-                                          </div>
-                                          <div class="course-content">
-                                              <div class="course-fee">Free</div>
-                                              <div class="c-review mb-20">
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star-half_alt"></i>
-                                                  <span>(222 Reviews)</span>
-                                              </div>
-                                              <h3><a href="#">UI UX design basic to dvance design course</a></h3>
-                                              <div class="course-meta">
-                                                  <div class="c-author">
-                                                      <p>By <a href="#">Ibraim emran</a></p>
-                                                  </div>
-                                                  <ul>
-                                                      <li><i class="icon_heart"></i>288</li>
-                                                      <li><i class=" icon_profile"></i> 158</li>
-                                                  </ul>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="tabs_item">
-                                  <div class="projects-carousel owl-carousel">
-                                      <div class="single-course mb-30">
-                                          <div class="course-thumb">
-                                              <img src="img/images/course_img01.jpg" alt="img">
-                                          </div>
-                                          <div class="course-content">
-                                              <div class="course-fee">Free</div>
-                                              <div class="c-review mb-20">
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star-half_alt"></i>
-                                                  <span>(222 Reviews)</span>
-                                              </div>
-                                              <h3><a href="#">UI UX design basic to dvance design course</a></h3>
-                                              <div class="course-meta">
-                                                  <div class="c-author">
-                                                      <p>By <a href="#">Ibraim emran</a></p>
-                                                  </div>
-                                                  <ul>
-                                                      <li><i class="icon_heart"></i>288</li>
-                                                      <li><i class=" icon_profile"></i> 158</li>
-                                                  </ul>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <div class="single-course mb-30">
-                                          <div class="course-thumb">
-                                              <img src="img/images/course_img01.jpg" alt="img">
-                                          </div>
-                                          <div class="course-content">
-                                              <div class="course-fee">Free</div>
-                                              <div class="c-review mb-20">
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star-half_alt"></i>
-                                                  <span>(222 Reviews)</span>
-                                              </div>
-                                              <h3><a href="#">Mastering Illustrator: 10 Tips &
-                                              tricks to speed your workflow</a></h3>
-                                              <div class="course-meta">
-                                                  <div class="c-author">
-                                                      <p>By <a href="#">Ibraim emran</a></p>
-                                                  </div>
-                                                  <ul>
-                                                      <li><i class="icon_heart"></i>288</li>
-                                                      <li><i class=" icon_profile"></i> 158</li>
-                                                  </ul>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <div class="single-course mb-30">
-                                          <div class="course-thumb">
-                                              <img src="img/images/course_img01.jpg" alt="img">
-                                          </div>
-                                          <div class="course-content">
-                                              <div class="course-fee">Free</div>
-                                              <div class="c-review mb-20">
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star-half_alt"></i>
-                                                  <span>(222 Reviews)</span>
-                                              </div>
-                                              <h3><a href="#">Creative Writing: Crafting
-                                              personal essays with impact</a></h3>
-                                              <div class="course-meta">
-                                                  <div class="c-author">
-                                                      <p>By <a href="#">Ibraim emran</a></p>
-                                                  </div>
-                                                  <ul>
-                                                      <li><i class="icon_heart"></i>288</li>
-                                                      <li><i class=" icon_profile"></i> 158</li>
-                                                  </ul>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <div class="single-course mb-30">
-                                          <div class="course-thumb">
-                                              <img src="img/images/course_img01.jpg" alt="img">
-                                          </div>
-                                          <div class="course-content">
-                                              <div class="course-fee">Free</div>
-                                              <div class="c-review mb-20">
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star-half_alt"></i>
-                                                  <span>(222 Reviews)</span>
-                                              </div>
-                                              <h3><a href="#">UI UX design basic to dvance design course</a></h3>
-                                              <div class="course-meta">
-                                                  <div class="c-author">
-                                                      <p>By <a href="#">Ibraim emran</a></p>
-                                                  </div>
-                                                  <ul>
-                                                      <li><i class="icon_heart"></i>288</li>
-                                                      <li><i class=" icon_profile"></i> 158</li>
-                                                  </ul>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <div class="single-course mb-30">
-                                          <div class="course-thumb">
-                                              <img src="img/images/course_img01.jpg" alt="img">
-                                          </div>
-                                          <div class="course-content">
-                                              <div class="course-fee">Free</div>
-                                              <div class="c-review mb-20">
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star-half_alt"></i>
-                                                  <span>(222 Reviews)</span>
-                                              </div>
-                                              <h3><a href="#">UI UX design basic to dvance design course</a></h3>
-                                              <div class="course-meta">
-                                                  <div class="c-author">
-                                                      <p>By <a href="#">Ibraim emran</a></p>
-                                                  </div>
-                                                  <ul>
-                                                      <li><i class="icon_heart"></i>288</li>
-                                                      <li><i class=" icon_profile"></i> 158</li>
-                                                  </ul>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="tabs_item">
-                                  <div class="projects-carousel owl-carousel">
-                                      <div class="single-course mb-30">
-                                          <div class="course-thumb">
-                                              <img src="img/images/course_img01.jpg" alt="img">
-                                          </div>
-                                          <div class="course-content">
-                                              <div class="course-fee">Free</div>
-                                              <div class="c-review mb-20">
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star-half_alt"></i>
-                                                  <span>(222 Reviews)</span>
-                                              </div>
-                                              <h3><a href="#">UI UX design basic to dvance design course</a></h3>
-                                              <div class="course-meta">
-                                                  <div class="c-author">
-                                                      <p>By <a href="#">Ibraim emran</a></p>
-                                                  </div>
-                                                  <ul>
-                                                      <li><i class="icon_heart"></i>288</li>
-                                                      <li><i class=" icon_profile"></i> 158</li>
-                                                  </ul>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <div class="single-course mb-30">
-                                          <div class="course-thumb">
-                                              <img src="img/images/course_img01.jpg" alt="img">
-                                          </div>
-                                          <div class="course-content">
-                                              <div class="course-fee">Free</div>
-                                              <div class="c-review mb-20">
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star-half_alt"></i>
-                                                  <span>(222 Reviews)</span>
-                                              </div>
-                                              <h3><a href="#">Mastering Illustrator: 10 Tips &
-                                              tricks to speed your workflow</a></h3>
-                                              <div class="course-meta">
-                                                  <div class="c-author">
-                                                      <p>By <a href="#">Ibraim emran</a></p>
-                                                  </div>
-                                                  <ul>
-                                                      <li><i class="icon_heart"></i>288</li>
-                                                      <li><i class=" icon_profile"></i> 158</li>
-                                                  </ul>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <div class="single-course mb-30">
-                                          <div class="course-thumb">
-                                              <img src="img/images/course_img01.jpg" alt="img">
-                                          </div>
-                                          <div class="course-content">
-                                              <div class="course-fee">Free</div>
-                                              <div class="c-review mb-20">
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star-half_alt"></i>
-                                                  <span>(222 Reviews)</span>
-                                              </div>
-                                              <h3><a href="#">Creative Writing: Crafting
-                                              personal essays with impact</a></h3>
-                                              <div class="course-meta">
-                                                  <div class="c-author">
-                                                      <p>By <a href="#">Ibraim emran</a></p>
-                                                  </div>
-                                                  <ul>
-                                                      <li><i class="icon_heart"></i>288</li>
-                                                      <li><i class=" icon_profile"></i> 158</li>
-                                                  </ul>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <div class="single-course mb-30">
-                                          <div class="course-thumb">
-                                              <img src="img/images/course_img01.jpg" alt="img">
-                                          </div>
-                                          <div class="course-content">
-                                              <div class="course-fee">Free</div>
-                                              <div class="c-review mb-20">
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star-half_alt"></i>
-                                                  <span>(222 Reviews)</span>
-                                              </div>
-                                              <h3><a href="#">UI UX design basic to dvance design course</a></h3>
-                                              <div class="course-meta">
-                                                  <div class="c-author">
-                                                      <p>By <a href="#">Ibraim emran</a></p>
-                                                  </div>
-                                                  <ul>
-                                                      <li><i class="icon_heart"></i>288</li>
-                                                      <li><i class=" icon_profile"></i> 158</li>
-                                                  </ul>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <div class="single-course mb-30">
-                                          <div class="course-thumb">
-                                              <img src="img/images/course_img01.jpg" alt="img">
-                                          </div>
-                                          <div class="course-content">
-                                              <div class="course-fee">Free</div>
-                                              <div class="c-review mb-20">
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star-half_alt"></i>
-                                                  <span>(222 Reviews)</span>
-                                              </div>
-                                              <h3><a href="#">UI UX design basic to dvance design course</a></h3>
-                                              <div class="course-meta">
-                                                  <div class="c-author">
-                                                      <p>By <a href="#">Ibraim emran</a></p>
-                                                  </div>
-                                                  <ul>
-                                                      <li><i class="icon_heart"></i>288</li>
-                                                      <li><i class=" icon_profile"></i> 158</li>
-                                                  </ul>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="tabs_item">
-                                  <div class="projects-carousel owl-carousel">
-                                      <div class="single-course mb-30">
-                                          <div class="course-thumb">
-                                              <img src="img/images/course_img01.jpg" alt="img">
-                                          </div>
-                                          <div class="course-content">
-                                              <div class="course-fee">Free</div>
-                                              <div class="c-review mb-20">
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star-half_alt"></i>
-                                                  <span>(222 Reviews)</span>
-                                              </div>
-                                              <h3><a href="#">UI UX design basic to dvance design course</a></h3>
-                                              <div class="course-meta">
-                                                  <div class="c-author">
-                                                      <p>By <a href="#">Ibraim emran</a></p>
-                                                  </div>
-                                                  <ul>
-                                                      <li><i class="icon_heart"></i>288</li>
-                                                      <li><i class=" icon_profile"></i> 158</li>
-                                                  </ul>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <div class="single-course mb-30">
-                                          <div class="course-thumb">
-                                              <img src="img/images/course_img01.jpg" alt="img">
-                                          </div>
-                                          <div class="course-content">
-                                              <div class="course-fee">Free</div>
-                                              <div class="c-review mb-20">
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star-half_alt"></i>
-                                                  <span>(222 Reviews)</span>
-                                              </div>
-                                              <h3><a href="#">Mastering Illustrator: 10 Tips &
-                                              tricks to speed your workflow</a></h3>
-                                              <div class="course-meta">
-                                                  <div class="c-author">
-                                                      <p>By <a href="#">Ibraim emran</a></p>
-                                                  </div>
-                                                  <ul>
-                                                      <li><i class="icon_heart"></i>288</li>
-                                                      <li><i class=" icon_profile"></i> 158</li>
-                                                  </ul>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <div class="single-course mb-30">
-                                          <div class="course-thumb">
-                                              <img src="img/images/course_img01.jpg" alt="img">
-                                          </div>
-                                          <div class="course-content">
-                                              <div class="course-fee">Free</div>
-                                              <div class="c-review mb-20">
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star-half_alt"></i>
-                                                  <span>(222 Reviews)</span>
-                                              </div>
-                                              <h3><a href="#">Creative Writing: Crafting
-                                              personal essays with impact</a></h3>
-                                              <div class="course-meta">
-                                                  <div class="c-author">
-                                                      <p>By <a href="#">Ibraim emran</a></p>
-                                                  </div>
-                                                  <ul>
-                                                      <li><i class="icon_heart"></i>288</li>
-                                                      <li><i class=" icon_profile"></i> 158</li>
-                                                  </ul>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <div class="single-course mb-30">
-                                          <div class="course-thumb">
-                                              <img src="img/images/course_img01.jpg" alt="img">
-                                          </div>
-                                          <div class="course-content">
-                                              <div class="course-fee">Free</div>
-                                              <div class="c-review mb-20">
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star-half_alt"></i>
-                                                  <span>(222 Reviews)</span>
-                                              </div>
-                                              <h3><a href="#">UI UX design basic to dvance design course</a></h3>
-                                              <div class="course-meta">
-                                                  <div class="c-author">
-                                                      <p>By <a href="#">Ibraim emran</a></p>
-                                                  </div>
-                                                  <ul>
-                                                      <li><i class="icon_heart"></i>288</li>
-                                                      <li><i class=" icon_profile"></i> 158</li>
-                                                  </ul>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <div class="single-course mb-30">
-                                          <div class="course-thumb">
-                                              <img src="img/images/course_img01.jpg" alt="img">
-                                          </div>
-                                          <div class="course-content">
-                                              <div class="course-fee">Free</div>
-                                              <div class="c-review mb-20">
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star"></i>
-                                                  <i class="icon_star-half_alt"></i>
-                                                  <span>(222 Reviews)</span>
-                                              </div>
-                                              <h3><a href="#">UI UX design basic to dvance design course</a></h3>
-                                              <div class="course-meta">
-                                                  <div class="c-author">
-                                                      <p>By <a href="#">Ibraim emran</a></p>
-                                                  </div>
-                                                  <ul>
-                                                      <li><i class="icon_heart"></i>288</li>
-                                                      <li><i class=" icon_profile"></i> 158</li>
-                                                  </ul>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
+      <div class="container">
+         <div class="row">
+            <div class="col-sm-12">
+               <div class="course-filter">
+                  <ul class="list-inline">
+                     <li class="list-inline-item select-cat" data-filter="*">All Works</li>
+                     <?php  $course_menu_terms = get_terms( array(
+                         'taxonomy' => 'course_category',
+                         'hide_empty' => false,
+                     ) ); 
+                     
+                     foreach ( $course_menu_terms as $course_menu_term ) { ?>
+                     <li class="list-inline-item" data-filter=".<?php echo esc_attr( $course_menu_term->slug ) ?>"><?php echo esc_html( $course_menu_term->name ) ?></li>
+
+                     <?php } ?>
+                  </ul>
+               </div>
+            </div>
+            <div class="col-sm-12">
+               <div class="isotope_items row">
+               <?php
+
+               $course = new \WP_Query( array( 
+                  'post_type' => 'lp_course',
+                  'posts_per_page' => $settings['ppp']['size'],
+                  'order' => $settings['order'],
+               ));
+
+               /* Start the Loop */
+               while ( $course->have_posts() ) : $course->the_post(); 
+
+                 $course_terms = get_the_terms( get_the_ID() , 'course_category' );
+
+               ?>
+               <div class="col-md-4 <?php foreach ($course_terms as $course_term) { echo esc_attr( $course_term->slug.' ' ); } ?>">
+                  <div class="single-course mb-30">
+                     <div class="course-thumb">
+                         <?php the_post_thumbnail() ?>
+                     </div>
+                     <div class="course-content">
+                         <div class="course-fee">Free</div>
+                         <div class="c-review mb-20">
+                             <i class="icon_star"></i>
+                             <i class="icon_star"></i>
+                             <i class="icon_star"></i>
+                             <i class="icon_star"></i>
+                             <i class="icon_star-half_alt"></i>
+                             <span>(222 Reviews)</span>
+                         </div>
+                         <h3><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h3>
+                         <div class="course-meta">
+                             <div class="c-author">
+                                 <p>By <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>"><?php the_author(); ?></a></p>
+                             </div>
+                             <ul>
+                                 <li><i class="icon_heart"></i>288</li>
+                                 <li><i class=" icon_profile"></i> 158</li>
+                             </ul>
+                         </div>
+                     </div>
                   </div>
-              </div>
-              <div class="col-12">
-                  <div class="courses-btn mt-20 text-center">
-                      <a href="#" class="btn">Browse our all courses</a>
-                  </div>
-              </div>
-          </div>
-      </section>
-      <!-- courses-area-end -->
+               </div>
+               <?php 
+               endwhile; 
+            wp_reset_postdata();
+            ?>
+            </div>
+         </div>
+      </div>
+   </div>
+
       <?php
    }
  
