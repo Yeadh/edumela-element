@@ -68,7 +68,8 @@ class edumela_Widget_Banner extends Widget_Base {
          'btn_text', [
             'label' => __( 'Text', 'edumela' ),
             'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => __('Register now','edumela')
+            'default' => __('Register now','edumela'),
+            'condition' => ['style' => 'style1']
          ]
       );
 
@@ -76,7 +77,17 @@ class edumela_Widget_Banner extends Widget_Base {
          'btn_url', [
             'label' => __( 'URL', 'edumela' ),
             'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => '#'
+            'default' => '#',
+            'condition' => ['style' => 'style1']
+         ]
+      );
+
+      $this->add_control(
+         'shortcode', [
+            'label' => __( 'Mailchimp shortcode', 'edumela' ),
+            'type' => \Elementor\Controls_Manager::TEXT,
+            'default' => '#',
+            'condition' => ['style' => 'style2']
          ]
       );
 
@@ -91,22 +102,43 @@ class edumela_Widget_Banner extends Widget_Base {
       $settings = $this->get_settings_for_display(); ?>
 
       <?php if ( $settings['style'] == 'style1' ){ ?>
-        <!-- banner-area -->
-        <section class="slider-area slider-bg">
+        
+      <!-- banner-area -->
+      <section class="slider-area slider-bg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="slider-content pt-165 text-center">
+                        <h2><?php echo esc_html($settings['title']); ?></h2>
+                        <p><?php echo esc_html($settings['description']); ?></p>
+                        <a href="<?php echo $settings['btn_url']; ?>" class="btn"><?php echo $settings['btn_text']; ?></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </section>
+      <!-- banner-area-end -->
+
+      <?php } elseif( $settings['style'] == 'style2' ){ ?>
+
+      <!-- slider-area -->
+      <section class="slider-area d-flex align-items-center s-slider-bg parallax">
           <div class="container">
               <div class="row justify-content-center">
-                  <div class="col-lg-10">
-                      <div class="slider-content pt-165 text-center">
+                  <div class="col-xl-9 col-lg-11">
+                      <div class="slider-content s-slider-content text-center">
                           <h2><?php echo esc_html($settings['title']); ?></h2>
                           <p><?php echo esc_html($settings['description']); ?></p>
-                          <a href="<?php echo $settings['btn_url']; ?>" class="btn"><?php echo $settings['btn_text']; ?></a>
+                          <div class="slider-search-box">
+                            <?php echo do_shortcode( $settings['shortcode'] ) ?>
+                          </div>
                       </div>
                   </div>
               </div>
           </div>
-        </section>
-        <!-- banner-area-end -->
-      <?php } elseif( $settings['style'] == 'style2' ){ ?>
+      </section>
+      <!-- slider-area-end -->
+
       <?php } ?>
       
       <?php

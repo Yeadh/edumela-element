@@ -53,20 +53,11 @@ class edumela_Widget_Counter extends Widget_Base {
       );
 
       $this->add_control(
-         'in_word',
-         [
-            'label' => __( 'In Word', 'edumela' ),
-            'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => __('M','edumela' )
-         ]
-      );
-
-      $this->add_control(
          'title',
          [
             'label' => __( 'Title', 'edumela' ),
             'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => __('Download','edumela' )
+            'default' => __('Students registered','edumela' )
          ]
       );
       
@@ -76,25 +67,25 @@ class edumela_Widget_Counter extends Widget_Base {
 
    protected function render( $instance = [] ) {
  
-      // get our input from the widget settings.
-       
-      $settings = $this->get_settings_for_display();
-      
-      //Inline Editing
-      $this->add_inline_editing_attributes( 'title', 'basic' );
-      $this->add_inline_editing_attributes( 'counter', 'basic' );
-      
-      ?>
+   // get our input from the widget settings.
+    
+   $settings = $this->get_settings_for_display();
+   
+   //Inline Editing
+   $this->add_inline_editing_attributes( 'title', 'basic' );
+   $this->add_inline_editing_attributes( 'counter', 'basic' );
+   
+   ?>
 
-      <div class="single-count text-center mb-40">
-        <div class="counter">
-         <span class="count"><?php echo esc_html( $settings['counter'] ); ?></span>
-         <?php if ($settings['in_word']): ?>
-           <span><?php echo esc_html( $settings['in_word'] ); ?></span>
-         <?php endif ?></div>
-        <p><?php echo esc_html( $settings['title'] ); ?></p>
-                
+   <div class="single-counter text-center mb-50">
+      <div class="counter-icon mb-30">
+         <img src="<?php echo esc_html( $settings['icon']['url'] ); ?>" alt="icon">
       </div>
+      <div class="counter-content">
+         <h2 class="count"><?php echo esc_html( $settings['counter'] ); ?></h2>
+         <span><?php echo esc_html( $settings['title'] ); ?></span>
+      </div>
+   </div>
 
       <?php
    }

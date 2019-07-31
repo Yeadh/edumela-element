@@ -28,6 +28,20 @@ class edumela_Widget_event extends Widget_Base {
             'type' => Controls_Manager::SECTION,
          ]
       );
+
+      $this->add_control(
+         'style',
+         [
+            'label' => __( 'Style', 'edumela' ),
+            'type' => \Elementor\Controls_Manager::SELECT,
+            'default' => 'style2',
+            'options' => [
+               'style1' => __( 'Style 1', 'edumela' ),
+               'style2' => __( 'Style 2', 'edumela' ),
+            ],
+         ]
+      );
+
       $this->add_control(
          'order',
          [
@@ -62,11 +76,12 @@ class edumela_Widget_event extends Widget_Base {
                   'order' => $settings['order'],
                ));
                /* Start the Loop */
-               while ( $event->have_posts() ) : $event->the_post();
-               ?>
+              while ( $event->have_posts() ) : $event->the_post();
+
+              if ( $settings['style'] == 'style1' ){ ?>
 
               <div class="single-slide-event">
-                 <?php the_post_thumbnail('edumela-570-540') ?>
+                 <?php the_post_thumbnail() ?>
                   <div class="overlay-event">
                       <div class="slide-event-date">
                           <h4><?php echo get_post_meta( get_the_ID(), 'edumela_date', 1 ) ?></h4>
@@ -89,6 +104,38 @@ class edumela_Widget_event extends Widget_Base {
                       </div>
                   </div>
               </div>
+
+
+              <?php } elseif( $settings['style'] == 'style2' ){ ?>
+
+              <div>
+                <div class="single-events">
+                    <div class="event-thumb">
+                        <?php the_post_thumbnail('edumela-325-175') ?>
+                    </div>
+                    <div class="event-content">
+                        <h3><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h3>
+                        <div class="event-meta">
+                            <ul>
+                                <li>
+                                    <i class="icon_clock_alt"></i>
+                                    <span><?php echo get_post_meta( get_the_ID(), 'edumela_from_time', 1 ) ?> to <?php echo get_post_meta( get_the_ID(), 'edumela_to_time', 1 ) ?></span>
+                                </li>
+                                <li>
+                                    <i class="icon_pin_alt"></i>
+                                    <span><?php echo get_post_meta( get_the_ID(), 'edumela_location', 1 ) ?></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="event-date">
+                        <h2><?php echo get_post_meta( get_the_ID(), 'edumela_date', 1 ) ?></h2>
+                        <span><?php echo get_post_meta( get_the_ID(), 'edumela_month', 1 ) ?></span>
+                    </div>
+                </div>
+              </div>
+
+              <?php } ?>
                <?php 
                endwhile; 
             wp_reset_postdata();

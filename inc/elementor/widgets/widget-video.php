@@ -47,7 +47,7 @@ class edumela_Widget_video extends Widget_Base {
          [
             'label' => __( 'URL', 'edumela' ),
             'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => '#',
+            'default' => '#'
          ]
       );
 

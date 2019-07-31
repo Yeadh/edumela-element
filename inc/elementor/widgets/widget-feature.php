@@ -30,6 +30,20 @@ class edumela_Widget_Feature extends Widget_Base {
       );
 
       $this->add_control(
+         'style',
+         [
+            'label' => __( 'Style', 'edumela' ),
+            'type' => \Elementor\Controls_Manager::SELECT,
+            'default' => 'style1',
+            'options' => [
+               'style1' => __( 'Style 1', 'edumela' ),
+               'style2' => __( 'Style 2', 'edumela' ),
+               'style3' => __( 'Style 3', 'edumela' ),
+            ],
+         ]
+      );
+
+      $this->add_control(
          'feature_icon', [
             'label' => __( 'Feature Icon', 'edumela' ),
             'type' => \Elementor\Controls_Manager::MEDIA,
@@ -101,6 +115,8 @@ class edumela_Widget_Feature extends Widget_Base {
       //Inline Editing
       $this->add_inline_editing_attributes( 'text', 'basic' );
       ?>
+      
+      <?php if ( $settings['style'] == 'style1' ){ ?>
 
       <div class="single-features <?php echo $settings['colors'] ?>">
           <div class="features-icon mb-25">
@@ -114,6 +130,33 @@ class edumela_Widget_Feature extends Widget_Base {
               </div>
           </div>
       </div>
+
+      <?php } elseif( $settings['style'] == 'style2' ){ ?>
+
+      <div class="t-single-features mb-50 <?php echo $settings['colors'] ?>">
+          <div class="t-features-icon">
+              <img src="<?php echo $settings['feature_icon']['url'] ?>" alt="<?php echo $settings['title']; ?>">
+          </div>
+          <div class="t-features-content">
+              <h5><?php echo $settings['title']; ?></h5>
+              <p><?php echo esc_html($settings['text']); ?></p>
+          </div>
+      </div>
+
+      <?php } elseif( $settings['style'] == 'style3' ){ ?>
+
+      <div class="s-single-features text-center mb-50">
+          <div class="s-features-icon mb-10">
+              <img src="<?php echo $settings['feature_icon']['url'] ?>" alt="<?php echo $settings['title']; ?>">
+          </div>
+          <div class="s-features-content">
+              <h4><?php echo $settings['title']; ?></h4>
+              <p><?php echo esc_html($settings['text']); ?></p>
+          </div>
+      </div>
+
+      <?php } ?>
+
       <?php
    }
  
