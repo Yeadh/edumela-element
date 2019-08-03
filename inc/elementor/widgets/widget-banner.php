@@ -130,7 +130,11 @@ class edumela_Widget_Banner extends Widget_Base {
                           <h2><?php echo esc_html($settings['title']); ?></h2>
                           <p><?php echo esc_html($settings['description']); ?></p>
                           <div class="slider-search-box">
-                            <?php echo do_shortcode( $settings['shortcode'] ) ?>
+                            <form class="ss-box" action="<?php echo home_url( '/' ); ?>">
+                              <input type="search" name="s" placeholder="Search course...">
+                              <button type="submit" value="Search">Find course</button>
+                              <input type="hidden" name="post_type" value="lp_course">
+                            </form>
                           </div>
                       </div>
                   </div>

@@ -138,11 +138,12 @@ class edumela_Widget_register extends Widget_Base {
           <div class="col-xl-10">
             
               <div class="reg-form mb-70 text-center">
-                  <form action="#">
-                      <input type="text" placeholder="Name">
-                      <input type="email" placeholder="Email">
-                      <button class="btn"><?php echo $settings['title'] ?></button>
-                  </form>
+                  <form name="registerform" action="<?php echo home_url() ?>/wp-login.php?action=register&redirect_to=<?php echo esc_url(home_url()); ?>" method="post" novalidate="novalidate">
+                      <input type="text" name="user_login" id="user_login" placeholder="Username">
+                      <input type="email" name="user_email" id="user_email" placeholder="Email">
+                      <button class="btn" type="submit" name="wp-submit" id="wp-submit">Registration now</button>
+                    </div>
+                </form>
               </div>
               <div class="coming-time-wrap text-center">
                   <div class="coming-time" data-countdown="<?php echo $settings['year'] ?>/<?php echo $settings['month'] ?>/<?php echo $settings['day'] ?>"></div>

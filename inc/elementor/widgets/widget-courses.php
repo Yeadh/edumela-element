@@ -126,13 +126,14 @@ class edumela_Widget_courses extends Widget_Base {
                                  <p>By <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>"><?php the_author(); ?></a></p>
                              </div>
                              <ul>
-                                 <li><i class="icon_heart"></i>288</li>
+                                 <li><i class="icon_heart"></i><?php echo learn_press_get_course_rate( get_the_ID(), false )['rated']; ?></li>
                                  <li><i class=" icon_profile"></i> 158</li>
                              </ul>
                          </div>
                      </div>
                   </div>
                </div>
+               
                <?php 
                endwhile; 
             wp_reset_postdata();
