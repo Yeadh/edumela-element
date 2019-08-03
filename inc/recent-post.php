@@ -11,11 +11,11 @@ if( !class_exists('edumela_Recent_Post') ){
 		function __construct(){
 
 			$widget_options = array(
-				'description' 					=> esc_html__('edumela recent post here', 'edumela'), 
+				'description' 					=> esc_html__('Edumela recent post here', 'edumela'), 
 				'customize_selective_refresh' 	=> true,
 			);
 
-			parent:: __construct('edumela_Recent_Post', esc_html__( 'Recent Post : edumela', 'edumela'), $widget_options );
+			parent:: __construct('edumela_Recent_Post', esc_html__( 'Recent Post : Edumela', 'edumela'), $widget_options );
 
 		}
 		
