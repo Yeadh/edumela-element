@@ -85,7 +85,7 @@ class edumela_Widget_event extends Widget_Base {
       <?php
       $event = new \WP_Query( array( 
         'post_type' => 'event',
-        'posts_per_page' => $settings['ppp'],
+        'posts_per_page' => $settings['ppp']['size'],
         'ignore_sticky_posts' => true,
         'order' => $settings['order'],
       ));

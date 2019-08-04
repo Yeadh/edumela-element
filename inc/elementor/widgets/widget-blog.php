@@ -89,7 +89,7 @@ class edumela_Widget_Blog extends Widget_Base {
       <?php
       $blog = new \WP_Query( array( 
         'post_type' => 'post',
-        'posts_per_page' => $settings['ppp'],
+        'posts_per_page' => $settings['ppp']['size'],
         'ignore_sticky_posts' => true,
         'order' => $settings['order'],
       )); ?>
