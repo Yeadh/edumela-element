@@ -1,7 +1,7 @@
 <?php 
 namespace Elementor;
  
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 // courses
 class edumela_Widget_courses extends Widget_Base {
@@ -110,30 +110,8 @@ class edumela_Widget_courses extends Widget_Base {
 
                ?>
                <div class="col-md-4 <?php foreach ($course_terms as $course_term) { echo esc_attr( $course_term->slug.' ' ); } ?>">
-                  <div class="single-course mb-30">
-                     <div class="course-thumb">
-                         <?php the_post_thumbnail() ?>
-                     </div>
-                     <div class="course-content">
-                         <div class="course-fee">Free</div>
-                         <div class="c-review mb-20">
-                             <div class="star-rating" data-rating="<?php echo learn_press_get_course_rate( get_the_ID(), false )['rated']; ?>"></div>
-                             <span>(<?php echo learn_press_get_course_rate( get_the_ID(), false )['total']; ?>  Reviews)</span>
-                         </div>
-                         <h3><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h3>
-                         <div class="course-meta">
-                             <div class="c-author">
-                                 <p>By <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>"><?php the_author(); ?></a></p>
-                             </div>
-                             <ul>
-                                 <li><i class="icon_heart"></i><?php echo learn_press_get_course_rate( get_the_ID(), false )['rated']; ?></li>
-                                 <li><i class=" icon_profile"></i> 158</li>
-                             </ul>
-                         </div>
-                     </div>
-                  </div>
+                  <?php get_template_part( 'template-parts/content', 'course' ); ?>
                </div>
-               
                <?php 
                endwhile; 
             wp_reset_postdata();
