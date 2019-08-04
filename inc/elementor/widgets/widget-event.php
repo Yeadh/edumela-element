@@ -42,6 +42,24 @@ class edumela_Widget_event extends Widget_Base {
          ]
       );
 
+       $this->add_control(
+         'ppp',
+         [
+            'label' => __( 'Number of Event', 'felipa' ),
+            'type' => Controls_Manager::SLIDER,
+            'range' => [
+               'no' => [
+                  'min' => 0,
+                  'max' => 100,
+                  'step' => 1,
+               ],
+            ],
+            'default' => [
+               'size' => 2,
+            ]
+         ]
+      );
+
       $this->add_control(
          'order',
          [
@@ -61,17 +79,13 @@ class edumela_Widget_event extends Widget_Base {
  
       // get our input from the widget settings.
        
-      $settings = $this->get_settings_for_display();
-      
-      //Inline Editing
-      $this->add_inline_editing_attributes( 'ppp', 'basic' );
-      ?>
+      $settings = $this->get_settings_for_display(); ?>
 
          
       <?php
       $event = new \WP_Query( array( 
         'post_type' => 'event',
-        'posts_per_page' => 3,
+        'posts_per_page' => $settings['ppp'],
         'ignore_sticky_posts' => true,
         'order' => $settings['order'],
       ));

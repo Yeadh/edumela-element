@@ -43,6 +43,24 @@ class edumela_Widget_Blog extends Widget_Base {
       );
 
       $this->add_control(
+         'ppp',
+         [
+            'label' => __( 'Number of Post', 'felipa' ),
+            'type' => Controls_Manager::SLIDER,
+            'range' => [
+               'no' => [
+                  'min' => 0,
+                  'max' => 100,
+                  'step' => 1,
+               ],
+            ],
+            'default' => [
+               'size' => 3,
+            ]
+         ]
+      );
+
+      $this->add_control(
          'order',
          [
             'label' => __( 'Order', 'edumela' ),
@@ -64,15 +82,14 @@ class edumela_Widget_Blog extends Widget_Base {
       $settings = $this->get_settings_for_display();
       
       //Inline Editing
-      $this->add_inline_editing_attributes( 'ppp', 'basic' );
-      ?>
+      $this->add_inline_editing_attributes( 'ppp', 'basic' ); ?>
 
       <div class="container">
          
       <?php
       $blog = new \WP_Query( array( 
         'post_type' => 'post',
-        'posts_per_page' => 3,
+        'posts_per_page' => $settings['ppp'],
         'ignore_sticky_posts' => true,
         'order' => $settings['order'],
       )); ?>
