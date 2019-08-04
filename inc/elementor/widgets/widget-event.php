@@ -82,7 +82,7 @@ class edumela_Widget_event extends Widget_Base {
         <div class="side-event-active">
         <?php while ( $event->have_posts() ) : $event->the_post(); ?>
         <div class="single-slide-event">
-           <?php the_post_thumbnail() ?>
+           <?php the_post_thumbnail('edumela-580-540') ?>
             <div class="overlay-event">
                 <div class="slide-event-date">
                     <h4><?php echo get_post_meta( get_the_ID(), 'edumela_date', 1 ) ?></h4>

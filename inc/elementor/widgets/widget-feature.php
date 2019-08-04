@@ -76,14 +76,14 @@ class edumela_Widget_Feature extends Widget_Base {
          [
             'label' => __( 'Text', 'edumela' ),
             'type' => \Elementor\Controls_Manager::TEXT,
-            'default' => __('Download','edumela'),
+            'default' => __('readmore','edumela'),
          ]
       );
 
       $this->add_control(
          'btn_url',
          [
-            'label' => __( 'Text', 'edumela' ),
+            'label' => __( 'URL', 'edumela' ),
             'type' => \Elementor\Controls_Manager::TEXT,
             'default' => '#',
          ]
