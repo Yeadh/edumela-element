@@ -49,32 +49,32 @@ class edumela_Widget_instructor extends Widget_Base {
       $settings = $this->get_settings_for_display(); ?> 
 
       <div class="row">
-      <?php
-      // The Query
-      $user_query = new \WP_User_Query( array(
+        <?php 
+        // The Query
+        $user_query = new \WP_User_Query( array(
         'role' => 'lp_teacher',
         'number' => $settings['num']
-      ) );
+        ) );
 
-      // User Loop
-      if ( ! empty( $user_query->get_results() ) ) {
-        foreach ( $user_query->get_results() as $user ) {
-      ?>
-      <div class="col-lg-4 col-md-6">
-        <div class="single-instructor">
-            <div class="instructor-thumb">
-                <img src="<?php echo esc_url( get_avatar_url( $user->ID ) ); ?>" />
-                <div class="instructor-overlay">
-                    <h3><a href="<?php echo $user->user_url; ?>"><?php echo $user->display_name; ?></a></h3>
-                    <span><?php echo $user->designation; ?></span>
-                </div>
-            </div>
-        </div>
+        // User Loop
+        if ( ! empty( $user_query->get_results() ) ) {
+        foreach ( $user_query->get_results() as $user ) { ?>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="single-instructor">
+              <div class="instructor-thumb">
+                  <?php echo get_avatar( $user->ID , 795 ); ?>
+                  <div class="instructor-overlay">
+                      <h3><?php echo $user->display_name; ?></h3>
+                      <span><?php echo $user->designation; ?></span>
+                  </div>
+              </div>
+          </div>
+        </div> 
+        <?php }
+          } ?>
       </div>
-  
-    <?php }
-      } ?>
-    </div>
+
    <?php }
  
 }
