@@ -74,7 +74,7 @@ class edumela_Widget_Title extends Widget_Base {
 
       <div class="row justify-content-center">
             <div class="col-xl-6 col-lg-7 col-md-10">
-                <div class="section-title <?php if( 'yes' == $settings['d_bg'] ){ echo'white-title'; } ?> mb-45 text-center">
+                <div class="section-title <?php if( 'yes' == $settings['d_bg'] ){ echo'white-title'; } ?> text-center">
                   <h2><?php echo esc_html($settings['title']); ?></h2>
                   <?php if ($settings['sub-title']): ?>
                      <p><?php echo esc_html($settings['sub-title']); ?></p>
