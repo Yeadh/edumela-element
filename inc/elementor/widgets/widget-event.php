@@ -119,8 +119,8 @@ class edumela_Widget_event extends Widget_Base {
                 </div>
             </div>
         </div>
-
       <?php endwhile; wp_reset_postdata(); ?>
+      </div>
 
       <?php } elseif( $settings['style'] == 'style2' ){ ?>
 
