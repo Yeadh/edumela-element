@@ -109,7 +109,7 @@ class edumela_Widget_courses extends Widget_Base {
                  $course_terms = get_the_terms( get_the_ID() , 'course_category' );
 
                ?>
-               <div class="col-md-4 <?php foreach ($course_terms as $course_term) { echo esc_attr( $course_term->slug.' ' ); } ?>">
+               <div class="col-md-6 col-xl-4 <?php foreach ($course_terms as $course_term) { echo esc_attr( $course_term->slug.' ' ); } ?>">
                   <?php get_template_part( 'template-parts/content', 'course' ); ?>
                </div>
                <?php 
